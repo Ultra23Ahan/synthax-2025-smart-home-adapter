@@ -1,27 +1,20 @@
 'use client';
 
-// import { useState } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
+import { useState } from 'react';
 import { X } from 'lucide-react';
-import Image from 'next/image';
+// import Image from 'next/image';
 // import { motion } from 'motion/react';
-// import {Button} from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
   Navbar,
   NavBody,
   NavItems,
   NavbarLogo,
-  //   NavbarButton,
+//   NavbarButton,
 } from '@/components/ui/resizable-navbar';
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-];
-
 export default function Page() {
+    const []
   const navItems = [
     {
       name: 'Features',
@@ -44,12 +37,15 @@ export default function Page() {
         <Navbar className="h-full mt-2">
           <NavBody>
             <NavbarLogo />
-            <NavItems items={navItems} className='text-md' />
+            <NavItems items={navItems} className="text-md" />
+            <div className="flex items-center gap-2">
+              <Button size="icon" variant="default"></Button>
+            </div>
           </NavBody>
         </Navbar>
       </header>
 
-      <div className="flex items-center justify-center flex-col min-h-screen w-screen bg-green-500">
+      <div className="flex items-center justify-center flex-col min-h-screen w-screen ">
         <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">
           Whatever thingy the name is
         </h1>
