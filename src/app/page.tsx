@@ -1,20 +1,18 @@
 'use client';
 
-import { useState } from 'react';
-import { X } from 'lucide-react';
+import { ThemeChangerButton } from '@/components/theme-changer-button';
+
 // import Image from 'next/image';
-// import { motion } from 'motion/react';
-import { Button } from '@/components/ui/button';
+import { motion } from 'motion/react';
 import {
   Navbar,
   NavBody,
   NavItems,
   NavbarLogo,
-//   NavbarButton,
+  //   NavbarButton,
 } from '@/components/ui/resizable-navbar';
 
 export default function Page() {
-    const []
   const navItems = [
     {
       name: 'Features',
@@ -33,22 +31,23 @@ export default function Page() {
   return (
     <>
       <header className="absolute w-full">
-        {/* NAVBAR */}
+        {/* navbar */}
         <Navbar className="h-full mt-2">
           <NavBody>
             <NavbarLogo />
             <NavItems items={navItems} className="text-md" />
-            <div className="flex items-center gap-2">
-              <Button size="icon" variant="default"></Button>
-            </div>
           </NavBody>
         </Navbar>
       </header>
+      {/* The dark mode light mode button */}
+      <div className="fixed top-1 right-1 z-50">
+        <ThemeChangerButton />
+      </div>
 
       <div className="flex items-center justify-center flex-col min-h-screen w-screen ">
-        <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">
-          Whatever thingy the name is
-        </h1>
+        <motion.h1 className="text-5xl font-semibold tracking-tight text-balance text-black dark:text-white md:text-6xl" animate={}>
+          Smart Energy Adapter
+        </motion.h1>
         <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
           Our HEMS is the HEMS to rule them all.
         </p>
