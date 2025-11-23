@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Device Dashboard</title>
+  <style>
+    body {
+      background: #101324;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      color: #222d3a;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    #comet-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: transparent;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #fff;
+      margin-top: 20px;
+      font-weight: bold;
+      text-shadow: 0 2px 10px #203050;
+      z-index: 2;
+      position: relative;
+      letter-spacing: 1px;
+    }
+    h2 { font-weight: 400; margin-bottom: 32px; }
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+      margin-top: 40px;
+      z-index: 2;
+      position: relative;
+    }
+    .bento {
+      background: #f5f7fa;
+      border-radius: 16px;
+      border: 2px solid #4a90e2;
+      box-shadow: 0 2px 12px #0003;
+      width: 300px;
+      height: 370px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      align-items: center;
+      padding: 20px 12px 12px 12px;
+      transition: background 0.35s;
+    }
+    .bento.on { background: #e8fdea; }
+    .bento.off { background: #fff1f0; }
+    .bento-header {
+      color: #4a90e2;
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: center;
+      width: 100%;
+    }
+    .row-label {
+      margin-bottom: 5px;
+      color: #375a7f;
+      font-size: 1.01rem;
+      font-weight: 700;
+    }
+    .row-content {
+      width: 100%;
+      background: #e1ecf7;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      padding: 8px 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      min-height: 28px;
+      color: #222d3a;
+    }
+    .row-content.warn {
+      background: #ffe3e3;
+      color: #c32f29;
+    }
+    .row-content.advice {
+      background: #f9ffe3;
+      color: #316800;
+      font-style: italic;
+    }
+    .toggle-btn {
+      width: 120px; margin-top: 11px;
+      padding: 11px 0;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.08rem;
+      cursor: pointer;
+      background: linear-gradient(90deg,#3dd56d 60%,#b2dfac 100%);
+      color: #fff;
+      box-shadow: 0 2px 10px #0002;
+      transition: background 0.35s, color 0.35s;
+      outline: none;
+    }
+    .toggle-btn.off {
+      background: linear-gradient(90deg,#c32f29 60%,#fe9696 100%);
+      color: #fff;
+    }
+    .graph-container {
+      margin: 0 auto 32px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #0002;
+      border: 2px solid #4a90e2;
+      width: 900px; max-width: 99vw; height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      z-index: 2;
+      position: relative;
+    }
+    @media (max-width:1000px){.container{gap:20px;}.graph-container{width:99vw;}}
+    @media (max-width:850px){.container{flex-wrap:wrap;}
+      .bento{width:95vw;max-width:370px;margin:0 auto 15px;}
+      .graph-container{height:220px}}
+  </style>
+</head>
+<body>
+  <canvas id="comet-canvas"></canvas>
+  <h1>Device Dashboard</h1>
+  <h2>Live Energy Monitoring</h2>
+  <div class="container">
+    <div class="bento on" id="bento1">
+      <div class="bento-header">Laptop</div>
+      <div class="row-label">Current Consumption</div>
+      <div class="row-content" id="live1">Loading...</div>
+      <div class="row-label">Warning</div>
+      <div class="row-content warn" id="warn1"></div>
+      <div class="row-label">Advice</div>
+      <div class="row-content advice" id="adv1"></div>
+      <button class="toggle-btn" id="toggle1">Device: ON</button>
+    </div>
+    <div class="bento on" id="bento2">
+      <div class="bento-header">TV</div>
+      <div class="row-label">Current Consumption</div>
+      <div class="row-content" id="live2">Loading...</div>
+      <div class="row-label">Warning</div>
+      <div class="row-content warn" id="warn2"></div>
+      <div class="row-label">Advice</div>
+      <div class="row-content advice" id="adv2"></div>
+      <button class="toggle-btn" id="toggle2">Device: ON</button>
+    </div>
+    <div class="bento on" id="bento3">
+      <div class="bento-header">Fridge</div>
+      <div class="row-label">Current Consumption</div>
+      <div class="row-content" id="live3">Loading...</div>
+      <div class="row-label">Warning</div>
+      <div class="row-content warn" id="warn3"></div>
+      <div class="row-label">Advice</div>
+      <div class="row-content advice" id="adv3"></div>
+      <button class="toggle-btn" id="toggle3">Device: ON</button>
+    </div>
+  </div>
+  <div class="graph-container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let deviceNames = ['Laptop', 'TV', 'Fridge'];
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: deviceNames,
+        datasets: [{
+          label: 'Consumption (kWh)',
+          data: [0, 0, 0],
+          backgroundColor: ['#4a90e2', '#70b8ff', '#2a6faa']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            title: { display: true, text: 'Device' },
+            grid:{display:false}
+          },
+          y: {
+            title: { display: true, text: 'Consumption (kWh)' },
+            beginAtZero: true, max: 100
+          }
+        },
+        plugins: { legend: { display: false }}
+      }
+    });
+
+    function updateLive(device, value, warning, advice) {
+      document.getElementById('live' + device).textContent = value + " kWh";
+      document.getElementById('warn' + device).textContent = warning || "";
+      document.getElementById('adv' + device).textContent = advice || "";
+    }
+    function simulate() {
+      let vals = [
+        (Math.random()*90+5).toFixed(1),
+        (Math.random()*90+5).toFixed(1),
+        (Math.random()*90+5).toFixed(1)
+      ];
+      let warns = vals.map(v => v > 80 ? 'High usage detected!' : '');
+      let advice = vals.map((v,i)=>
+        warns[i] ? 'Please turn off unused devices.' : 'All normal.');
+      updateLive(1, vals[0], warns[0], advice[0]);
+      updateLive(2, vals[1], warns[1], advice[1]);
+      updateLive(3, vals[2], warns[2], advice[2]);
+      myChart.data.datasets[0].data = vals;
+      myChart.update();
+    }
+    setInterval(simulate, 3000); simulate();
+
+    // Toggle Button Functionality
+    function sendToESP(device, state) {
+      // Replace <ESP32_IP> with your ESP32 server IP
+      fetch(`http://<ESP32_IP>/toggle`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ device, state }) // state: "on" or "off"
+      })
+      .then(res=>res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log("ESP Error: ", err));
+    }
+
+    function setupToggle(toggleId, bentoId, deviceIdx) {
+      const btn = document.getElementById(toggleId);
+      const bento = document.getElementById(bentoId);
+      let isOn = true; // ON by default
+      btn.classList.remove('off'); btn.classList.add('on');
+      btn.textContent = "Device: ON";
+      bento.classList.remove('off'); bento.classList.add('on');
+      btn.addEventListener('click', () => {
+        isOn = !isOn;
+        btn.classList.toggle('on', isOn);
+        btn.classList.toggle('off', !isOn);
+        bento.classList.toggle('on', isOn);
+        bento.classList.toggle('off', !isOn);
+        btn.textContent = isOn ? "Device: ON" : "Device: OFF";
+        sendToESP(deviceNames[deviceIdx], isOn ? "on" : "off");
+      });
+    }
+    window.onload = function() {
+      setupToggle("toggle1", "bento1", 0);
+      setupToggle("toggle2", "bento2", 1);
+      setupToggle("toggle3", "bento3", 2);
+    }
+
+    // Comet background animation
+    const ccanvas = document.getElementById('comet-canvas');
+    const cctx = ccanvas.getContext('2d');
+    let width, height, comets=[];
+    function resize() {
+      width = ccanvas.width = window.innerWidth;
+      height = ccanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize',resize); resize();
+    function Comet() {
+      this.x = Math.random()*width;
+      this.y = Math.random()*-height;
+      this.len = Math.random()*60+30;
+      this.speed = Math.random()*2+1.5;
+      this.size = Math.random()+1.1;
+      this.angle = (3*Math.PI)/4;
+      this.opacity = Math.random()*0.4+0.6;
+      this.update = function() {
+        this.x += this.speed*Math.cos(this.angle);
+        this.y += this.speed*Math.sin(this.angle);
+        if(this.x < -this.len || this.y > height+20)
+          this.x = Math.random()*width + width,
+          this.y = Math.random()*-100;
+      };
+      this.draw = function(ctx) {
+        const grad = ctx.createLinearGradient(this.x, this.y, this.x-this.len*Math.cos(this.angle), this.y-this.len*Math.sin(this.angle));
+        grad.addColorStop(0, `rgba(255,255,255,${this.opacity})`);
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = this.size;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x-this.len*Math.cos(this.angle), this.y-this.len*Math.sin(this.angle));
+        ctx.stroke();
+      };
+    }
+    function initComets(n=60) {
+      comets=[];
+      for(let i=0;i<n;i++)comets.push(new Comet());
+    }
+    function animate() {
+      cctx.clearRect(0,0,width,height);
+      for(let comet of comets)comet.update(),comet.draw(cctx);
+      requestAnimationFrame(animate);
+    }
+    initComets(); animate();
+  </script>
+</body>
+</html>
