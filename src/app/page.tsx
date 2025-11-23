@@ -70,8 +70,8 @@ export default function Page() {
           <NavBody>
             <NavbarLogo />
             <NavItems items={navItems} className="text-md" />
-            <div className="absolute top-0 right-0 z-50 flex gap-2 m-2 self-end">
-              <a href="/login/index1.html">
+            <div className="absolute top-0 right-0 z-50 flex gap-2 m-2.5 justify-center items-center">
+              <a href="/login/login.html">
                 <Button variant="default">Log In/Register → </Button>
               </a>
               <ThemeChangerButton />
@@ -168,10 +168,9 @@ export default function Page() {
       </div>
 
       {/* Features Section */}
+      <div id="features" className="h-50"></div>
       <div className="w-full h-fit pb-15 flex justify-center">
-        <h1 className="text-4xl font-bold" id="features">
-          Features
-        </h1>
+        <h1 className="text-4xl font-bold">Features</h1>
       </div>
 
       <div className="h-screen w-full flex flex-1 items-start justify-start px-5">
@@ -179,40 +178,45 @@ export default function Page() {
           <Card
             title="Comprehensive Device-Level Monitoring"
             content="Get precise, real-time data on voltage, current, and power consumption for any connected device to identify wastage and reduce electricity bills."
+            // className="h-40"
           />
 
           <Card
             title="Instant Safety Alerts"
             content="Receive immediate notifications if consumption crosses safe limits or if electrical anomalies are detected to prevent hazards."
+            // className="h-40"
           />
 
           <Card
             title="Smart AI Insights"
             content="Analyzes usage patterns to recommend optimal device operation times and detect abnormal behavior for better energy management."
+            // className="h-40"
           />
 
           <Card
             title="Web & Mobile Remote Control"
             content="Control your device with real-time ON/OFF switching from a responsive dashboard with zero refresh delays."
+            // className="h-40"
           />
 
           <Card
             title="Simple Plug-and-Play Design"
             content="No rewiring needed—compact adapter plugs into any outlet and works instantly in homes or offices."
+            // className="h-40"
           />
 
           <Card
             title="Secure & Private"
             content="Data is transmitted using secure protocols to prevent tampering and protect your personal energy usage information."
+            // className="h-40"
           />
         </div>
       </div>
 
       {/* Pricing Section */}
+      <div id="pricing" className="h-50"></div>
       <div className="w-full h-fit pb-15 flex justify-center">
-        <h1 className="text-4xl font-bold" id="pricing">
-          Pricing
-        </h1>
+        <h1 className="text-4xl font-bold">Pricing</h1>
       </div>
 
       <div className="h-screen w-full flex flex-1 items-start justify-start px-5">
@@ -220,30 +224,27 @@ export default function Page() {
           <Card
             title="Starter Plan"
             content="Includes real-time energy monitoring, alert notifications, and dashboard access for one device, along with daily summary reports."
+            className="bg-blue-500 border-foreground border-4"
           />
 
           <Card
             title="Advanced Plan"
             content="Offers enhanced AI insights, 6-month historical data, customizable reports, priority support, and firmware update access."
+            className="bg-pink-500 border-foreground border-4"
           />
 
           <Card
             title="Enterprise Plan"
             content="Custom solutions for businesses, bulk pricing, account management, and advanced analytics or integrations."
-          />
-
-          <Card
-            title="Try Before You Buy"
-            content="Enjoy a 14-day full-feature free trial with no credit card required."
+            className="bg-purple-500 border-foreground border-4"
           />
         </div>
       </div>
 
       {/* Contact Section */}
+      <div id="contact" className="h-50"></div>
       <div className="w-full h-fit pb-15 flex justify-center">
-        <h1 className="text-4xl font-bold" id="contact">
-          Contact
-        </h1>
+        <h1 className="text-4xl font-bold">Contact</h1>
       </div>
 
       <div className="h-screen w-full flex flex-1 items-start justify-start px-5">
