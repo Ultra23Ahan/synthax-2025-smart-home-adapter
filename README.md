@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hello!
 
-## Getting Started
+Inspiration
+Most families do not know how much energy appliances like fridges or chargers use. A lot of power is wasted without anyone noticing, and bills go up. We thought—what if you could see exactly which devices are using the most electricity and get warned if something goes wrong?
 
-First, run the development server:
+What it does
+Smart Energy Adapter helps you track how much electricity each device is using—live, on your phone or computer. If your TV or laptop starts using way too much power, or if something is about to break, you get an alert immediately. You can even turn things on or off remotely!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+How we built it
+We used a tiny computer (ESP32) with sensors that measure electricity for each plug. All the information goes to a dashboard we designed with cool graphics (like comets falling in the background!) so you can see every device’s stats easily. We made the controls big and simple so anyone can use them.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Challenges
+Getting the sensors to show the right data and making alerts accurate was tough. We also wanted everything to look good and not be confusing, so designing the dashboard was a challenge.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+What we’re proud of
+We made electricity monitoring look awesome! You see every device’s power use clearly, and get warning messages and tips. It works on any screen and you can control it from anywhere.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+What we learned
+We learned how important it is to show graphs and send instant alerts. We also realized everyone likes it simple—just clear info and easy buttons!
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+What’s next
+Next, we want to make a mobile app, send notifications right to your phone, and give smart advice on how to save even more energy at home!
