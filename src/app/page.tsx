@@ -5,13 +5,12 @@ import { useEffect, useState } from 'react';
 import { Logo } from '@/components/ui/logo';
 
 // import Image from 'next/image';
-import { motion, Variants, useAnimate } from 'motion/react';
+import { motion } from 'motion/react';
 import {
   Navbar,
   NavBody,
   NavItems,
   NavbarLogo,
-  //   NavbarButton,
 } from '@/components/ui/resizable-navbar';
 import { Button } from '@/components/ui/button';
 
@@ -83,70 +82,71 @@ export default function Page() {
         className="grid h-screen place-items-center bg-transparent"
         data-remove="opening-animation">
         <div className="animate-fade-in-out text-6xl text-black dark:text-white w-fit h-fit">
-          <motion.svg
-            initial="hidden"
-            animate="visible"
-            className={`absolute z-9999 w-fit h-fit`}
-            width="886"
-            height="886"
-            style={{
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}>
-            <motion.circle
-              transition={{ duration: 1.5 }}
-              //   variants={draw}
-              cx={443}
-              cy={443}
-              custom={1}
-              r="300"
-              stroke="#f1c02d"
-              style={{
-                strokeWidth: 50,
-                strokeLinecap: 'round',
-                fill: 'transparent',
-              }}
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-            />
-            <motion.circle
-              transition={{ duration: 2 }}
-              //   variants={draw}
-              cx={443}
-              cy={443}
-              custom={1}
-              r="360"
-              stroke="#f17e1a"
-              style={{
-                strokeWidth: 50,
-                strokeLinecap: 'round',
-                fill: 'transparent',
-              }}
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-            />
-            <motion.circle
-              transition={{ duration: 2.5 }}
-              //   variants={draw}
-              cx={443}
-              cy={443}
-              custom={1}
-              r="418"
-              stroke="#f13b47"
-              style={{
-                strokeWidth: 50,
-                strokeLinecap: 'round',
-                fill: 'transparent',
-              }}
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-            />
-          </motion.svg>
           <motion.div
             animate={{ scale: 50 }}
-            transition={{ delay: 3.5, ease: 'easeOut' }}
+            transition={{ delay: 3.5, ease: 'easeInOut', duration: 0.5 }}
             className="flex justify-center items-center">
+            <motion.svg
+              initial="hidden"
+              animate="visible"
+              className={`absolute z-9999 w-fit h-fit`}
+              width="886"
+              height="886"
+              style={{
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}>
+              <motion.circle
+                transition={{ duration: 1.5 }}
+                //   variants={draw}
+                cx={443}
+                cy={443}
+                custom={1}
+                r="300"
+                stroke="#f1c02d"
+                style={{
+                  strokeWidth: 50,
+                  strokeLinecap: 'round',
+                  fill: 'transparent',
+                }}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+              />
+              <motion.circle
+                transition={{ duration: 2 }}
+                //   variants={draw}
+                cx={443}
+                cy={443}
+                custom={1}
+                r="360"
+                stroke="#f17e1a"
+                style={{
+                  strokeWidth: 50,
+                  strokeLinecap: 'round',
+                  fill: 'transparent',
+                }}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+              />
+              <motion.circle
+                transition={{ duration: 2.5 }}
+                //   variants={draw}
+                cx={443}
+                cy={443}
+                custom={1}
+                r="418"
+                stroke="#f13b47"
+                style={{
+                  strokeWidth: 50,
+                  strokeLinecap: 'round',
+                  fill: 'transparent',
+                }}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+              />
+            </motion.svg>
+
             <Logo size={72} />
           </motion.div>
         </div>
@@ -159,7 +159,7 @@ export default function Page() {
           Smart Energy Adapter
         </motion.h1>
         <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-          Our HEMS is the HEMS to rule them all.
+          Our EMS is the EMS to rule them all.
         </p>
       </div>
       <div className="mt-10 flex items-center justify-center gap-x-6">

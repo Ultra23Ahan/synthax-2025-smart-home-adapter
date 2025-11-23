@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,4 +119,49 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@theme inline {
+  --animate-meteor-effect: meteor 5s linear infinite;
+
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+}
+
+@theme inline {
+  @keyframes fade-out {
+    0% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes stopscroll {
+    0%,
+    90% {
+      overflow: hidden;
+    }
+    100% {
+      overflow: auto;
+    }
+  }
+  --animate-fade-in-out: fade-out 5s forwards;
+
+  --animate-stopscroll: stopscroll 3.5s forwards;
 }
