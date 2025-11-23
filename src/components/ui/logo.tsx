@@ -1,10 +1,20 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 type LogoParams = {
-  width: number;
-  height: number;
+  size: number;
+  className: string;
 };
-function Logo({ width, height, className }: LogoParams) {
-  return <img src="/logo.png" alt="Logo" className={cn(`w-${width} h-${height}`, className)} />;
+function Logo({ size, className }: LogoParams) {
+  /* converts px to rem */
+  return (
+    <Image
+      src="/logo.png"
+      alt="Logo"
+      width={size * 4}
+      height={size * 4}
+      className={cn(className)}
+    />
+  );
 }
 
 export { Logo };

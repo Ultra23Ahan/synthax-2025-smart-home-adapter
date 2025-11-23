@@ -1,11 +1,11 @@
 'use client';
 
 import { ThemeChangerButton } from '@/components/theme-changer-button';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Logo } from '@/components/ui/logo';
 
 // import Image from 'next/image';
-import { motion } from 'motion/react';
+import { motion, Variants, useAnimate } from 'motion/react';
 import {
   Navbar,
   NavBody,
@@ -13,8 +13,11 @@ import {
   NavbarLogo,
   //   NavbarButton,
 } from '@/components/ui/resizable-navbar';
+import { Button } from '@/components/ui/button';
 
 export default function Page() {
+  const [centerX, setCenterX] = useState(0);
+  const [centerY, setCenterY] = useState(0);
   useEffect(() => {
     function loadStartingAnimation() {
       document.body.classList.add('overflow-hidden');
@@ -27,14 +30,20 @@ export default function Page() {
         document.body.classList.remove('overflow-hidden');
         document.querySelector('[data-remove="opening-animation"]')?.remove();
         nav?.classList.remove('hidden');
-      }, 3500);
+      }, 5000);
 
       return () => {
         clearTimeout(timer);
       };
     }
+    function getCenterOfScreen() {
+      setCenterX(window.innerWidth / 2);
+      setCenterY(window.innerHeight / 2);
+      console.log(centerX, centerY);
+    }
+    getCenterOfScreen();
     loadStartingAnimation();
-  }, []);
+  }, [centerX, centerY, setCenterX, setCenterY]);
 
   const navItems = [
     {
@@ -53,27 +62,94 @@ export default function Page() {
 
   return (
     <>
-      <header className="absolute w-full">
-        {/* navbar */}
-        <div data-remove="hide">
-          <Navbar className="h-full mt-2">
-            <NavBody>
-              <NavbarLogo />
-              <NavItems items={navItems} className="text-md" />
-            </NavBody>
-          </Navbar>
-        </div>
-      </header>
-      {/* The dark mode light mode button */}
-      <div className="fixed top-1 right-1 z-50">
-        <ThemeChangerButton />
+      {/* <header className="absolute w-full"> */}
+      {/* navbar */}
+      <div data-remove="hide">
+        <Navbar className="h-full mt-2">
+          <NavBody>
+            <NavbarLogo />
+            <NavItems items={navItems} className="text-md" />
+            <div className="absolute top-0 right-0 z-50 flex gap-2 m-2 self-end">
+              <Button variant="default">Log In/Register → </Button>
+              <ThemeChangerButton />
+            </div>
+          </NavBody>
+        </Navbar>
       </div>
+      {/* </header> */}
+      {/* The dark mode light mode button */}
+
       <div
         className="grid h-screen place-items-center bg-transparent"
         data-remove="opening-animation">
-        <h1 className="animate-fade-in-out z-40 text-6xl text-black dark:text-white">
-          <Logo width={14} height={14} />
-        </h1>
+        <div className="animate-fade-in-out text-6xl text-black dark:text-white w-fit h-fit">
+          <motion.svg
+            initial="hidden"
+            animate="visible"
+            className={`absolute z-9999 w-fit h-fit`}
+            width="886"
+            height="886"
+            style={{
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+            }}>
+            <motion.circle
+              transition={{ duration: 1.5 }}
+              //   variants={draw}
+              cx={443}
+              cy={443}
+              custom={1}
+              r="300"
+              stroke="#f1c02d"
+              style={{
+                strokeWidth: 50,
+                strokeLinecap: 'round',
+                fill: 'transparent',
+              }}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+            />
+            <motion.circle
+              transition={{ duration: 2 }}
+              //   variants={draw}
+              cx={443}
+              cy={443}
+              custom={1}
+              r="360"
+              stroke="#f17e1a"
+              style={{
+                strokeWidth: 50,
+                strokeLinecap: 'round',
+                fill: 'transparent',
+              }}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+            />
+            <motion.circle
+              transition={{ duration: 2.5 }}
+              //   variants={draw}
+              cx={443}
+              cy={443}
+              custom={1}
+              r="418"
+              stroke="#f13b47"
+              style={{
+                strokeWidth: 50,
+                strokeLinecap: 'round',
+                fill: 'transparent',
+              }}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+            />
+          </motion.svg>
+          <motion.div
+            animate={{ scale: 50 }}
+            transition={{ delay: 3.5, ease: 'easeOut' }}
+            className="flex justify-center items-center">
+            <Logo size={72} />
+          </motion.div>
+        </div>
       </div>
 
       <div className="flex items-center justify-center flex-col min-h-screen w-screen ">
