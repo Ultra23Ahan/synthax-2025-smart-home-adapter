@@ -1,0 +1,394 @@
+.scissors{
+    position: absolute;
+    width: 56.51px;
+    height: 72.81px;
+    left: 1010px;
+    top: 10px;
+    transform: rotate(126.84);
+}
+
+.AlumaText{
+position: absolute;
+width: 233px;
+height: 60px;
+left: 820px;
+top: 70px;
+
+font-family: League Spartan;
+font-style: normal;
+font-weight: 900;
+font-size: 65px;
+line-height: 60px;
+color: #0C8D48;
+}
+.SalonText{
+position: absolute;
+width: 900px;
+height: 23px;
+left: 870px;
+top: 160px;
+
+font-family: 'League Spartan';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 23px;
+
+color: #00388C;
+
+
+}
+
+.DiscountText{
+    /* Onboard Your Salon  &  Increase  Your sale by 50% */
+
+position: absolute;
+width: 526px;
+height: 24px;
+left: 202px;
+top: 331px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+letter-spacing: 0.03em;
+
+
+color: #01AA4F;
+
+
+}
+
+.Line{
+    /* Line 1 */
+
+position: absolute;
+width: 80px;
+height: 0px;
+left: 107px;
+top: 342px;
+
+border: 3px solid #000000;
+
+}
+
+.Name{
+    /* Name */
+
+position: absolute;
+width: 43px;
+height: 21px;
+left: 107px;
+top: 422px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+
+.NameBox{
+    /* Rectangle 3 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 245px;
+height: 48px;
+left: 107px;
+top: 457px;
+
+background: #FAFDFF;
+border: 1px solid #E8E8E8;
+border-radius: 10px;
+outline: none;
+}
+
+.NameBox::placeholder {
+    /* Adjust placeholder position */
+    padding-left: 10px; /* Adjust as needed */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.NameBox[type="text"] {
+    /* Adjust text indent for typed text */
+    text-indent: 5px; /* Adjust as needed */
+    font-family: 'Poppins';
+}
+
+.Email{
+    /* Email */
+
+position: absolute;
+width: 38px;
+height: 21px;
+left: 366px;
+top: 417px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+
+.EmailBox{
+    /* Rectangle 3 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 245px;
+height: 48px;
+left: 366px;
+top: 457px;
+
+background: #FAFDFF;
+border: 1px solid #E8E8E8;
+border-radius: 10px;
+outline: none;
+}
+.EmailBox::placeholder {
+    /* Adjust placeholder position */
+    padding-left: 10px; /* Adjust as needed */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    color: #000000;
+    opacity: 0.4;
+}
+
+.EmailBox[type="text"] {
+    /* Adjust text indent for typed text */
+    text-indent: 5px; /* Adjust as needed */
+    font-family: 'Poppins';
+}
+
+.Message{
+    /* Message */
+
+position: absolute;
+width: 63px;
+height: 21px;
+left: 107px;
+top: 531px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+color: #000000;
+
+
+}
+
+.MessageBox{
+/* Rectangle 3 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 504px;
+height: 48px;
+left: 107px;
+top: 566px;
+
+background: #FAFDFF;
+border: 1px solid #E8E8E8;
+border-radius: 10px;
+outline: none;
+}
+
+.MessageBox[type="text"] {
+    /* Adjust text indent for typed text */
+    text-indent: 5px; /* Adjust as needed */
+    font-family: 'Poppins';
+}
+.Arrow {
+    /* Vector */
+    position: absolute;
+    left: 135px; /* Adjust based on the arrow's width */
+    top: 720px; /* Adjust based on the arrow's height */
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    background: none;
+    pointer-events: none;
+}
+.Arrow:hover {
+    transform: scale(1.1); /* Increase size on hover */
+    transition: all 0.5s ease; /* Smooth transition on hover */
+}
+
+.Arrow:active {
+    transform: scale(0.9); /* Decrease size when clicked */
+    transition: all 0.2s ease; /* Smooth transition when clicked */
+}
+
+.Arrow {
+    transition: all 0.5s ease; /* Smooth transition when hover ends */
+}
+.ContinueButton{
+/* Rectangle 7 */
+
+position: absolute;
+width: 80px;
+height: 80px;
+left: 107px;
+top: 692px;
+
+background: rgba(74, 194, 44, 0.68);
+box-shadow: 0px 10px 30px #FFB7D5;
+border-radius: 35px;
+outline: none !important; /* Remove the outline */
+border: none;
+}
+
+.ContinueButton:hover {
+    transform: scale(1.1); /* Increase size on hover */
+    transition: all 0.5s ease; /* Smooth transition on hover */
+}
+
+.ContinueButton:active {
+    transform: scale(0.9); /* Decrease size when clicked */
+    transition: all 0.2s ease; /* Smooth transition when clicked */
+}
+
+.ContinueButton {
+    transition: all 0.5s ease; /* Smooth transition when hover ends */
+}
+
+
+.PartnerButton{
+/* Group 1000003255 */
+
+position: absolute;
+width: 174px;
+height: 64px;
+left: 879px;
+top: 311px;
+
+background: #01AA4F;
+/* Shadow */
+box-shadow: 0px 20px 50px rgba(55, 69, 87, 0.1);
+border-radius: 24px;
+
+
+/* Aluma Partner */
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 27px;
+/* identical to box height */
+
+color: #FFFFFF;
+outline: none !important;
+border: none;
+}
+
+.PartnerButton:hover {
+    transform: scale(1.1); /* Increase size on hover */
+    transition: all 0.5s ease; /* Smooth transition on hover */
+}
+
+.PartnerButton:active {
+    transform: scale(0.9); /* Decrease size when clicked */
+    transition: all 0.2s ease; /* Smooth transition when clicked */
+}
+
+.PartnerButton {
+    transition: all 0.5s ease; /* Smooth transition when hover ends */
+}
+
+
+.ConsumerButton{
+    /* Group 1000003256 */
+
+position: absolute;
+width: 202px;
+height: 64px;
+left: 1135px;
+top: 311px;
+
+
+
+/* 01 */
+
+/* Auto layout */
+
+background: #01AA4F;
+/* Shadow */
+box-shadow: 0px 20px 50px rgba(55, 69, 87, 0.1);
+border-radius: 24px;
+
+
+/* Aluma Consumer */
+
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 27px;
+/* identical to box height */
+color: #01AA4F;
+background: #FFFFFF;
+
+
+outline: none !important; /* Remove the outline */
+border: none;
+}
+
+.ConsumerButton:hover {
+    transform: scale(1.1); /* Increase size on hover */
+    transition: all 0.5s ease; /* Smooth transition on hover */
+}
+
+.ConsumerButton:active {
+    transform: scale(0.9); /* Decrease size when clicked */
+    transition: all 0.2s ease; /* Smooth transition when clicked */
+}
+
+.ConsumerButton {
+    transition: all 0.5s ease; /* Smooth transition when hover ends */
+}
+
+.Guy{
+    /* Hero Image */
+
+position: absolute;
+width: 1440px;
+height: 600px;
+left: 465px;
+bottom: -85px;
+
+/* background: url(Untitled.png); */
+
+}

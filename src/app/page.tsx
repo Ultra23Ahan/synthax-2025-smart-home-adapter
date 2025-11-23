@@ -13,6 +13,8 @@ import {
   NavbarLogo,
 } from '@/components/ui/resizable-navbar';
 import { Button } from '@/components/ui/button';
+import { Meteors } from '@/components/ui/meteors';
+import { Card } from '@/components/ui/card';
 
 export default function Page() {
   const [centerX, setCenterX] = useState(0);
@@ -61,22 +63,22 @@ export default function Page() {
 
   return (
     <>
-      {/* <header className="absolute w-full"> */}
       {/* navbar */}
       <div data-remove="hide">
-        <Navbar className="h-full mt-2">
+        <Meteors number={250} />
+        <Navbar>
           <NavBody>
             <NavbarLogo />
             <NavItems items={navItems} className="text-md" />
             <div className="absolute top-0 right-0 z-50 flex gap-2 m-2 self-end">
-              <Button variant="default">Log In/Register → </Button>
+              <a href="/login/index1.html">
+                <Button variant="default">Log In/Register → </Button>
+              </a>
               <ThemeChangerButton />
             </div>
           </NavBody>
         </Navbar>
       </div>
-      {/* </header> */}
-      {/* The dark mode light mode button */}
 
       <div
         className="grid h-screen place-items-center bg-transparent"
@@ -99,7 +101,6 @@ export default function Page() {
               }}>
               <motion.circle
                 transition={{ duration: 1.5 }}
-                //   variants={draw}
                 cx={443}
                 cy={443}
                 custom={1}
@@ -115,7 +116,6 @@ export default function Page() {
               />
               <motion.circle
                 transition={{ duration: 2 }}
-                //   variants={draw}
                 cx={443}
                 cy={443}
                 custom={1}
@@ -166,9 +166,109 @@ export default function Page() {
         {' '}
         {/*The buttons like get started etc */}
       </div>
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"></div>
+
+      {/* Features Section */}
+      <div className="w-full h-fit pb-15 flex justify-center">
+        <h1 className="text-4xl font-bold" id="features">
+          Features
+        </h1>
+      </div>
+
+      <div className="h-screen w-full flex flex-1 items-start justify-start px-5">
+        <div className="h-screen flex p-2 gap-5">
+          <Card
+            title="Comprehensive Device-Level Monitoring"
+            content="Get precise, real-time data on voltage, current, and power consumption for any connected device to identify wastage and reduce electricity bills."
+          />
+
+          <Card
+            title="Instant Safety Alerts"
+            content="Receive immediate notifications if consumption crosses safe limits or if electrical anomalies are detected to prevent hazards."
+          />
+
+          <Card
+            title="Smart AI Insights"
+            content="Analyzes usage patterns to recommend optimal device operation times and detect abnormal behavior for better energy management."
+          />
+
+          <Card
+            title="Web & Mobile Remote Control"
+            content="Control your device with real-time ON/OFF switching from a responsive dashboard with zero refresh delays."
+          />
+
+          <Card
+            title="Simple Plug-and-Play Design"
+            content="No rewiring needed—compact adapter plugs into any outlet and works instantly in homes or offices."
+          />
+
+          <Card
+            title="Secure & Private"
+            content="Data is transmitted using secure protocols to prevent tampering and protect your personal energy usage information."
+          />
+        </div>
+      </div>
+
+      {/* Pricing Section */}
+      <div className="w-full h-fit pb-15 flex justify-center">
+        <h1 className="text-4xl font-bold" id="pricing">
+          Pricing
+        </h1>
+      </div>
+
+      <div className="h-screen w-full flex flex-1 items-start justify-start px-5">
+        <div className="h-screen flex p-2 gap-5">
+          <Card
+            title="Starter Plan"
+            content="Includes real-time energy monitoring, alert notifications, and dashboard access for one device, along with daily summary reports."
+          />
+
+          <Card
+            title="Advanced Plan"
+            content="Offers enhanced AI insights, 6-month historical data, customizable reports, priority support, and firmware update access."
+          />
+
+          <Card
+            title="Enterprise Plan"
+            content="Custom solutions for businesses, bulk pricing, account management, and advanced analytics or integrations."
+          />
+
+          <Card
+            title="Try Before You Buy"
+            content="Enjoy a 14-day full-feature free trial with no credit card required."
+          />
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="w-full h-fit pb-15 flex justify-center">
+        <h1 className="text-4xl font-bold" id="contact">
+          Contact
+        </h1>
+      </div>
+
+      <div className="h-screen w-full flex flex-1 items-start justify-start px-5">
+        <div className="h-screen flex p-2 gap-5">
+          <Card
+            title="Customer Support"
+            content="Email: support@yourdomain.com • Phone: +1-234-567-8900 (Mon–Fri, 9AM–6PM) • Live chat available on our website."
+          />
+
+          <Card
+            title="Sales & Business"
+            content="Contact sales@yourdomain.com or call +1-234-567-8911 for business inquiries, partnerships, or bulk orders."
+          />
+
+          <Card
+            title="Technical Feedback"
+            content="We value your input. Send product suggestions or issue reports to feedback@yourdomain.com."
+          />
+
+          <Card
+            title="Follow Us"
+            content="Twitter: @YourCompany • LinkedIn: YourCompany • Facebook: fb.com/YourCompany • Instagram: @YourCompany"
+          />
+        </div>
+      </div>
     </>
   );
 }
