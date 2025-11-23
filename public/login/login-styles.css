@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: sans-serif;
   background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   min-height: 100vh;
   overflow: hidden;
@@ -58,7 +58,7 @@ body {
 .text-zone {
   flex: 1;
   padding: 100px 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #764ba2;
   color: white;
   display: flex;
   flex-direction: column;
@@ -142,7 +142,7 @@ body {
   border: 2px solid #e5e7eb;
   border-radius: 14px;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: sans-serif;
   color: #1f2937;
   transition: all 0.3s ease;
   background: #f9fafb;
@@ -176,7 +176,7 @@ body {
   font-weight: 500;
 }
 
-.remember input[type="checkbox"] {
+.remember input[type='checkbox'] {
   width: 22px;
   height: 22px;
   margin-right: 12px;
@@ -199,13 +199,13 @@ body {
 .login-button {
   width: 100%;
   padding: 22px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #667eea;
   border: none;
   border-radius: 14px;
   color: white;
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;

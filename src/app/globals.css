@@ -166,6 +166,6 @@
   --animate-stopscroll: stopscroll 3.5s forwards;
 }
 
-body {
+* {
   scroll-behavior: smooth;
 }
